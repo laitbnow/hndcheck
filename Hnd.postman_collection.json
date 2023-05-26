@@ -1,0 +1,106 @@
+{
+	"info": {
+		"_postman_id": "f9a0c524-080a-489b-8c57-f8ab1e15680c",
+		"name": "Hnd",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Main site",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Coming soon information visible\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"Ceny, specyfikacje i data\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://www.honda.pl/cars.html",
+					"protocol": "https",
+					"host": [
+						"www",
+						"honda",
+						"pl"
+					],
+					"path": [
+						"cars.html"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pricing",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"",
+							"    pm.test(\"No pricing added\", function () {",
+							"        pm.expect(pm.response.text()).to.include(`<div class=\"brochure-item\" data-model-id=\"cr-v-hybrid-suv\" id=\"cr-v-hybrid-suv\">",
+							"                        <div class=\"image-wrapper\">",
+							"                            ",
+							"                                <picture>",
+							"                                    <img src=\"/content/dam/local/germany/cars/2023/flyout/CR-VHybrid2024-Flyout.png/_jcr_content/renditions/c2.png\" alt=\"CR-V e:HEV / e:PHEV \" loading=\"lazy\">",
+							"                                </picture>",
+							"                            ",
+							"                        </div>",
+							"                        <div class=\"content-wrapper\">",
+							"                            <div class=\"product-info\">",
+							"                                <h3 class=\"product-title\">CR-V e:HEV / e:PHEV </h3>",
+							"                                ",
+							"                            </div>",
+							"                            <ul class=\"product-brochures\">",
+							"                                ",
+							"                                ",
+							"                                    <li>",
+							"                                        ",
+							"                                        <a href=\"/content/dam/local/poland/brochures/cars/Nowy_CR-V_eHEV_i_ePHEV_Wstępny_Katalog_05_2023.pdf\" class=\"brochure-link analyticsEvent cr-v-hybrid-suv_box_dab\" data-target=\"external\" data-analytics='{\"event\":\"Brochure Request\",\"eventCategory\":\"Brochure Request\",\"eventLabel\":\"/cars/get-a-brochure | cr-v-hybrid-suv | Pobierz wstępny katalog\",\"eventAction\":\"Download\"}'>",
+							"                                            <span class=\"icon-wrapper\">",
+							"                                                <img src=\"/etc/designs/honda/theme_inclusive/img/svg-icons/brochure-new.svg\" class=\"svg-icon\">",
+							"                                            </span>",
+							"                                            <span>Pobierz wstępny katalog (PDF 1.5 MB)</span>",
+							"                                        </a>",
+							"                                    </li>",
+							"                                ",
+							"                            </ul>",
+							"                        </div>",
+							"                    </div>`);",
+							"    });",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://www.honda.pl/cars/get-a-brochure.html",
+					"protocol": "https",
+					"host": [
+						"www",
+						"honda",
+						"pl"
+					],
+					"path": [
+						"cars",
+						"get-a-brochure.html"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
